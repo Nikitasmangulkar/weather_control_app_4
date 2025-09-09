@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "weather_control_app/web/index.html"
+      "destination": "weather_control_app/web/*"
     }
   ]
 }
