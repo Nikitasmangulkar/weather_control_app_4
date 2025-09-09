@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="scaffolded-by" content="https://github.com/dart-lang/sdk">
+    <title>Weather Control App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="main.dart.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Weather Control Center</h1>
+    <div class="control-panel">
+      <div class="control-group">
+        <label for="temperature">Temperature (°C)</label>
+        <input type="range" id="temperature" min="-30" max="50" value="20">
+        <span id="temp-value">20°C</span>
+      </div>
+      
+      <div class="control-group">
+        <label for="humidity">Humidity (%)</label>
+        <input type="range" id="humidity" min="0" max="100" value="50">
+        <span id="humidity-value">50%</span>
+      </div>
+      
+      <div class="control-group">
+        <label for="wind">Wind Speed (km/h)</label>
+        <input type="range" id="wind" min="0" max="200" value="10">
+        <span id="wind-value">10 km/h</span>
+      </div>
+
+      <div class="control-group">
+        <label for="weather-type">Weather Type</label>
+        <select id="weather-type">
+          <option value="sunny">Sunny</option>
+          <option value="cloudy">Cloudy</option>
+          <option value="rainy">Rainy</option>
+          <option value="snowy">Snowy</option>
+          <option value="stormy">Stormy</option>
+        </select>
+      </div>
+
+      <button id="apply-changes">Apply Weather Changes</button>
+    </div>
+    
+    <div class="current-status">
+      <h2>Current Weather Status</h2>
+      <div id="status-display">
+        <p>Temperature: <span id="current-temp">20°C</span></p>
+        <p>Humidity: <span id="current-humidity">50%</span></p>
+        <p>Wind Speed: <span id="current-wind">10 km/h</span></p>
+        <p>Weather: <span id="current-weather">Sunny</span></p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+entrypoint = "main.dart"
+modules = ["dart-3.35.3"]
+
+[nix]
+channel="stable-24_05"
+packages = ["flutter"]
+
+[deployment]
+run = ["dart", "main.dart"]
+deploymentTarget = "cloudrun"
+
+[agent]
+expertMode = true
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Weather Control App"
+
+[[workflows.workflow]]
+name = "Weather Control App"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "export PATH=\"$PATH\":\"$HOME/.pub-cache/bin\" && cd weather_control_app && webdev serve --hostname 0.0.0.0 web:5000"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
